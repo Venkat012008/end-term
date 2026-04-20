@@ -30,6 +30,14 @@ export default function Signup() {
     }
   }, [currentUser, navigate]);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
   const onSubmit = async (data) => {
     setLoading(true);
     try {
